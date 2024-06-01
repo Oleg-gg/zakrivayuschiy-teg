@@ -12,3 +12,195 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  inset-block-end: -3px;
+  block-size: 2px;
+  inline-size: calc(100% - 6px);
+  inset-inline-start: 6px;
+}
+
+.theme-menu__button:focus-visible::after {
+  transition: transform 0.3s ease-out;
+  transform: scaleX(1);
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes arrow {
+  from {
+    inset-inline-start: -16px;
+  }
+
+  to {
+    inset-inline-start: -12px;
+  }
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation: arrow ease-in-out 0.5s alternate-reverse infinite;
+  inset-inline-start: -16px;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+  transition: border 0.3s ease;
+  inline-size: 39px;
+  block-size: 38px;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+  outline: none;
+  transition: box-shadow 0.3s ease-out;
+}
+
+.card__like-button::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  inset-block: 0;
+  block-size: 100%;
+  inline-size: 100%;
+  inset-inline-start: 0;
+}
+
+.card__like-button:hover:after {
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+.card__like-button:hover {
+  color: var(--bg-color);
+  transition: color 1s ease;
+}
+
+.footer__button::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  inset-block: 0;
+  block-size: 100%;
+  inline-size: 100%;
+  inset-inline-start: 0;
+}
+
+.footer__button:hover:after {
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+.footer__button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+  outline: none;
+  transition: box-shadow 0.3s ease-out;
+}
+
+.footer__button:hover {
+  color: var(--bg-color);
+  transition: color 1s ease;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon .core {
+  fill: var(--bg-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon .main-body {
+  fill: var(--bg-color);
+  transition: fill 0.3 0.03 linear;
+}
+
+.like-icon:active .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+@keyframes scale-animation {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.5;
+  }
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: scale-animation 0.3s 0.1s ease-in reverse;
+}
+
+@keyframes sparks-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-animation 0.3s 0.03s ease-in reverse;
+}
