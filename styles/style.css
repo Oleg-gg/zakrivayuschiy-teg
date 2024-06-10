@@ -146,7 +146,7 @@
   width: 100%;
 }
 
-.main {
+.wraper {
   display: flex;
   flex-direction: column;
   gap: 51px;
@@ -217,8 +217,8 @@
 
 .img-overlay-text {
   position: absolute;
-  inset-block-start: 25px;
-  inset-inline-end: 25px;
+  inset-block-start: 23px;
+  inset-inline-end: 12px;
 
   font-family: var(--font-accent);
   font-weight: var(--font-weight-normal);
@@ -268,7 +268,6 @@
   box-shadow: 0 0 0 var(--accent-color);
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, color 1s ease;
 }
 
 .content-button:focus {
@@ -391,7 +390,7 @@
 }
 
 .dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 @media (width <= 375px) {
