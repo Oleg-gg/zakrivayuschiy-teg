@@ -1,1 +1,50 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --font-main: Inter, sans-serif;
+  --font-accent: PressStart2P, fantasy, sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --bg-color: #fff;
+  --bg-color-gradient: #d3d3d3;
+  --bg-color-gradient-from: #e7e7e7;
+  --bg-color-gradient-to: #1a1a1a;
+  --shadow-color: #fff;
+  --button-text-color: #fff;
+
+  --bg-image-gradient: repeating-linear-gradient(
+      to right,
+      var(--bg-color-gradient),
+      var(--bg-color-gradient) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--bg-color-gradient),
+      var(--bg-color-gradient) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--bg-color-gradient-from),
+      var(--bg-color-gradient-from) 0.01%,
+      var(--bg-color-gradient-to)
+    );
+
+  --accent-color: #000;
+  --accent-color-rgba: rgba(0, 0, 0, 0.6);
+  --overlay-color: #000;
+
+  --bg-image: url("../svg/pattern-light.svg");
+
+  --content-width: clamp(23.438rem, 16.2859rem + 30.5157vw, 43.75rem);
+
+  --header-logo-font-size: clamp(3.063rem, 2.7109rem + 1.5023vw, 4.063rem);
+  --header-title-font-size: clamp(0.875rem, 0.6768rem + 0.8458vw, 1.438rem);
+
+  --heart-contour: #000;
+  --heart-sparks: #ff0000;
+}

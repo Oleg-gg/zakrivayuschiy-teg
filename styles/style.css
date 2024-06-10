@@ -11,10 +11,425 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
 */
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+
+  font-family: var(--font-main);
+  font-variation-settings: "wght" var(--font-weight-normal);
+  color: var(--accent-color);
+
+  background-color: var(--bg-color, #fff);
+  background-image: var(--bg-image-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+.header {
+  width: var(--content-width);
+  padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  padding-block-end: 25px;
+  margin: 100px auto;
+  background-color: var(--bg-color);
+
+  font-family: var(--font-accent);
+  font-weight: var(--font-weight-normal);
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+  border: 2px solid var(--accent-color);
+}
+
+.header-logo {
+  font-size: var(--header-logo-font-size);
+  line-height: var(--header-logo-font-size);
+  text-decoration: none;
+}
+
+.header-logo:focus {
+  outline: none;
+}
+
+.header-logo:focus-visible {
+  outline: none;
+}
+
+.header-title {
+  font-size: var(--header-title-font-size);
+  line-height: var(--header-title-font-size);
+  font-weight: var(--font-weight-normal);
+  margin-block-start: 20px;
+}
+
+.header__theme-menu {
+  position: relative;
+  inset-inline-start: 9px;
+  margin-block-start: 25px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+
+  color: currentColor;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: var(--font-weight-normal);
+  text-transform: uppercase;
+  vertical-align: middle;
+
+  position: relative;
+  transition: opacity 0.3s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  inset-inline-start: -20px;
+  inset-block-end: 0px;
+  animation: selected-menu-item 0.5s ease-in-out infinite alternate;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.theme-menu__button::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  margin-top: 1px;
+  background-color: var(--accent-color-rgba);
+  transition: width 0.3s;
+
+  position: absolute;
+  inset-block-end: -2px;
+  inset-inline-start: 0px;
+}
+
+.theme-menu__button:hover::after {
+  width: 100%;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+}
+
+.wraper {
+  display: flex;
+  flex-direction: column;
+  gap: 51px;
+}
+
+.card {
+  background-color: var(--bg-color);
+  width: var(--content-width);
+  margin: 0 auto;
+  border: 2px solid var(--accent-color);
+}
+
+.card-title {
+  font-size: 18px;
+  font-variation-settings: "wght" var(--font-weight-bold);
+  line-height: 21.78px;
+  padding-inline: clamp(0.625rem, 0.794rem + -0.1878vw, 0.75rem);
+  padding-block-start: clamp(0.188rem, 0.2718rem + -0.0931vw, 0.25rem);
+  padding-block-end: clamp(0.313rem, 0.3968rem + -0.0931vw, 0.375rem);
+}
+
+.card-image {
+  width: 100%;
+  border-block: 2px solid var(--accent-color);
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.img-container {
+  position: relative;
+}
+
+/* 2 */
+.filter-sepia {
+  filter: sepia(80%);
+}
+
+/* 3 */
+.filter-saturate {
+  filter: saturate(8.5);
+}
+
+/* 4 */
+.filter-contract {
+  filter: hue-rotate(45deg);
+}
+
+/* 5 */
+.filter-invert {
+  filter: invert(1);
+}
+
+/* 6 */
+.filter-sepia{
+  filter: sepia(1);
+}
+
+/* 7 */
+.filter-blur {
+  filter: blur(18px);
+}
+
+/* 8 */
+.filter-mixed {
+  
+  filter:  hue-rotate(130deg) saturate(532%) blur(0.1px) contrast(47%);
+}
+
+.img-overlay-text {
+  position: absolute;
+  inset-block-start: 23px;
+  inset-inline-end: 12px;
+
+  font-family: var(--font-accent);
+  font-weight: var(--font-weight-normal);
+  font-size: 14px;
+  line-height: 1em;
+
+  color: var(--overlay-color);
+  opacity: 50%;
+  text-shadow: 0px -1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color),
+    1px 0px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color),
+    0px 1px 0 var(--shadow-color), -1px 1px 0 var(--shadow-color),
+    -1px 0px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+  mix-blend-mode: hard-light;
+}
+
+.card-text {
+  font-size: 18px;
+  font-variation-settings: "wght" var(--font-weight-normal);
+  line-height: 21px;
+  margin-block-start: clamp(1.313rem, 1.269rem + 0.1878vw, 1.438rem);
+  margin-inline: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.button {
+  background-color: transparent;
+  outline: none;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin: 25px;
+  gap: 6px;
+}
+
+.content-button {
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+
+  box-sizing: border-box;
+  box-shadow: 0 0 0 var(--accent-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.content-button:focus {
+  outline: none;
+}
+
+.content-button:focus-visible {
+  box-shadow: 2px 2px 0px var(--accent-color);
+}
+
+.content-button::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.content-button:hover {
+  cursor: pointer;
+}
+
+.content-button:hover::before {
+  transform: translateX(0);
+}
+
+.button__text {
+  position: relative;
+  mix-blend-mode: difference;
+  color: var(--button-text-color);
+}
+
+.card__icon-button {
+  height: 38px;
+  border: 2px solid var(--bg-color);
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  border: 2px solid var(--accent-color);
+  box-sizing: border-box;
+}
+
+.card__icon-button:hover {
+  cursor: pointer;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 12.6px;
+}
+
+.save-area {
+  margin-block: 0 102px;
+  display: flex;
+  justify-content: center;
+}
+
+.save__button {
+  width: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
+  height: clamp(3.438rem, 5.888rem + -2.7223vw, 5.25rem);
+
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 12.6px;
+  font-weight: var(--font-weight-normal);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.save__floppy {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+@media (width <= 375px) {
+  .save__button {
+    flex-direction: column;
+  }
+
+  .save__floppy {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.dialog {
+  padding: 30px;
+  border: 2px solid var(--accent-color);
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  width: 24.5%;
+
+  position: fixed;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+@media (width <= 375px) {
+  .dialog {
+    width: 91%;
+  }
+}
+
+.dialog:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dialog-text-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.save__floppy.floppy-dialog {
+  min-width: 39px;
+  min-height: 39px;
+}
+
+.dialog-text {
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: var(--font-weight-normal);
+  font-family: var(--font-accent);
+}
+
+.dialog-button {
+  text-transform: uppercase;
+  width: 100%;
+  height: 38px;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 12.6px;
+  font-weight: var(--font-weight-normal);
 }
